@@ -1,61 +1,94 @@
-# Simple AI Chatbot
+# Retail Demand Forecasting Chatbot
 
-A rule-based chatbot built with NLTK and scikit-learn, with a Streamlit chat UI. It normalizes user input (tokenizing + WordNet lemmatization), then matches it against predefined intents using TF-IDF vectorization and cosine similarity.
+A Streamlit chatbot that explains retail demand forecasting concepts in a simple conversational format. The bot can answer questions about demand forecasting, seasonality, trends, promotions, accuracy metrics, inventory planning, overforecasting, underforecasting, and forecast interpretation.
+
+## Live Demo
+
+Try the deployed app here:
+
+https://retail-demand-chatbot.streamlit.app/
+
+## Project Overview
+
+This project uses a lightweight rule-based NLP approach:
+
+- User messages are cleaned and preprocessed with NLTK.
+- Example questions from `intents.json` are converted into TF-IDF vectors.
+- The chatbot compares the user message with known intent patterns using cosine similarity.
+- If the confidence score is high enough, the bot returns a response from the matched intent.
+- If the message is outside the chatbot's knowledge area, it returns a fallback response.
+
+## Features
+
+- Streamlit chat interface
+- Retail demand forecasting concept explanations
+- Intent-based response matching
+- TF-IDF and cosine similarity matching
+- Debug option to show matched intent and confidence score
+- Easy-to-edit `intents.json` knowledge base
+
+## Topics Covered
+
+- What demand forecasting means
+- Retail forecasting use cases
+- Historical sales data
+- Seasonality and trends
+- Promotions, holidays, and external factors
+- Forecasting model types
+- MAE, RMSE, and MAPE
+- Overforecasting vs underforecasting
+- Inventory and stockout impact
+- Interpreting predicted demand
+- Forecasting best practices and limitations
 
 ## Files
 
-- `intents.json` — the bot's knowledge base: each intent has example `patterns` (things a user might say) and possible `responses`.
-- `nlp_utils.py` — text preprocessing: cleaning, tokenizing, stopword removal, lemmatization.
-- `chatbot_engine.py` — the matching logic (TF-IDF + cosine similarity). No UI code at all, so it's easy to test or reuse.
-- `app.py` — the Streamlit front-end.
-- `requirements.txt` — Python dependencies.
+- `app.py` - Streamlit front-end for the chatbot
+- `chatbot_engine.py` - Core TF-IDF and cosine similarity matching logic
+- `nlp_utils.py` - Text cleaning, tokenization, stopword removal, and lemmatization
+- `intents.json` - Chatbot knowledge base with patterns and responses
+- `requirements.txt` - Python dependencies
 
 ## Setup
 
-It's a good idea to use a virtual environment:
+Create and activate a virtual environment:
 
 ```bash
-python3 -m venv venv
-source venv/bin/activate      # on Windows: venv\Scripts\activate
+python -m venv venv
+venv\Scripts\activate
+```
+
+Install dependencies:
+
+```bash
 pip install -r requirements.txt
 ```
 
-The first time you run the bot, NLTK will download a few small data packages (tokenizer models, WordNet, stopwords) automatically — this needs internet access once, then it's cached locally.
+## Run Locally
 
-## Running it
-
-Quickest way to test the logic in your terminal, no Streamlit needed:
-
-```bash
-python3 chatbot_engine.py
-```
-
-To launch the actual chat UI:
+Run the Streamlit app:
 
 ```bash
 streamlit run app.py
 ```
 
-This opens a browser tab with a chat window. There's a sidebar with example topics, a "Clear conversation" button, and a debug toggle that shows which intent your last message matched and the confidence score — handy while you're tuning things.
+Or test the chatbot logic in the terminal:
 
-## How the matching works
-
-Every example pattern from every intent gets preprocessed and combined into one corpus, and a single `TfidfVectorizer` is fit on it. When you type a message, it's preprocessed the same way, vectorized, and compared against every pattern with cosine similarity. The intent attached to the closest pattern wins, as long as the similarity score clears `CONFIDENCE_THRESHOLD` (set to 0.4 in `chatbot_engine.py`) — otherwise the bot falls back to its `fallback` responses rather than guessing confidently at something irrelevant.
-
-## Extending it
-
-To teach the bot something new, just add an entry to `intents.json`:
-
-```json
-{
-  "tag": "store_locations",
-  "patterns": ["where is your store", "do you have a physical location", "store address"],
-  "responses": ["We're online-only right now, but check back for store openings!"]
-}
+```bash
+python chatbot_engine.py
 ```
 
-More example patterns per intent generally means better matching — five or six varied phrasings per intent is a reasonable target.
+## Deployment
 
-## A known limitation worth knowing about
+This app is deployed on Streamlit Community Cloud. To deploy your own version:
 
-TF-IDF + cosine similarity on a small set of short patterns can occasionally misfire on out-of-scope questions, matching them to an unrelated intent just because they share a common word (e.g. "what" or "tell me"). This is a real characteristic of the technique, not a bug, and it's a good thing to notice while experimenting: with only a handful of patterns per intent, rare shared words can dominate the similarity score. Adding more patterns per intent and raising `CONFIDENCE_THRESHOLD` both help, but a small rule-based bot like this will never be bulletproof against questions far outside its intents. That gap is exactly the kind of thing more advanced approaches (real intent classifiers, embeddings, or LLM-based bots) are built to close.
+1. Push this project to a GitHub repository.
+2. Go to https://share.streamlit.io.
+3. Click **Create app**.
+4. Select your GitHub repository and branch.
+5. Set the main file path to `app.py`.
+6. Click **Deploy**.
+
+## Limitations
+
+This chatbot is not a fine-tuned AI model. It uses predefined intents and TF-IDF similarity, so it works best when user questions are close to the examples in `intents.json`. For advanced use cases, the chatbot could be extended with embeddings, retrieval, or an LLM-based backend.
