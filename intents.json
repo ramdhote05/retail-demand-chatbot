@@ -1,0 +1,84 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["hi", "hello", "hey", "good morning", "good afternoon", "good evening", "greetings", "hello there", "can you help me with forecasting", "i need help with demand forecasting"],
+      "responses": ["Hello! I can help explain retail demand forecasting concepts, metrics, and business impact.", "Hi there! Ask me about demand forecasts, seasonality, accuracy metrics, inventory planning, or forecasting limitations.", "Hey! I can help you understand retail demand forecasting and how to interpret forecast results."]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["bye", "goodbye", "see you", "see you later", "talk later", "i'm leaving", "catch you later", "farewell", "i have to go"],
+      "responses": ["Goodbye! I hope your forecasts lead to smarter inventory decisions.", "See you later! Come back anytime you want to explore demand forecasting concepts.", "Bye! Good luck with your retail forecasting analysis."]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["thanks", "thank you", "appreciate it", "thanks a lot", "thank you so much", "thanks for the help", "that helps"],
+      "responses": ["You're welcome! Forecasting gets easier once the core ideas are clear.", "Happy to help with retail demand forecasting.", "Anytime! Ask another forecasting question whenever you're ready."]
+    },
+    {
+      "tag": "about_bot",
+      "patterns": ["who are you", "what are you", "are you a robot", "are you human", "tell me about yourself", "what is your name", "what can you do", "how can you help"],
+      "responses": ["I'm a retail demand forecasting assistant. I explain forecasting concepts, accuracy metrics, business tradeoffs, and how forecasts support inventory decisions.", "I'm a chatbot trained on retail demand forecasting topics such as seasonality, trends, model types, forecast errors, and stock planning."]
+    },
+    {
+      "tag": "demand_forecasting_definition",
+      "patterns": ["what is demand forecasting", "define demand forecasting", "what does demand forecast mean", "explain demand forecasting", "what is retail demand forecasting", "meaning of demand prediction", "why forecast demand", "purpose of demand forecasting"],
+      "responses": ["Demand forecasting estimates future customer demand using historical sales patterns and relevant business factors. In retail, it helps plan inventory, staffing, purchasing, promotions, and replenishment.", "Retail demand forecasting predicts how much of a product customers are likely to buy in a future period. The goal is to reduce stockouts, avoid excess inventory, and support better business planning."]
+    },
+    {
+      "tag": "retail_use_cases",
+      "patterns": ["how is forecasting used in retail", "retail forecasting use cases", "why do retailers need forecasts", "how does demand forecasting help stores", "business use of demand forecasting", "forecasting for retail decisions", "where can retail forecasts be used"],
+      "responses": ["Retailers use demand forecasts to decide how much inventory to order, when to replenish stock, where to allocate products, how to plan promotions, and how to prepare for seasonal peaks.", "Forecasts support decisions like inventory planning, warehouse replenishment, store allocation, staffing, pricing analysis, and promotion timing."]
+    },
+    {
+      "tag": "historical_sales_data",
+      "patterns": ["why is historical sales data important", "what historical data is needed", "how do past sales help forecasting", "sales history in demand forecasting", "what data should i use for demand forecasting", "why use previous sales", "importance of sales history"],
+      "responses": ["Historical sales data is the foundation of most demand forecasts because it shows past buying behavior, recurring patterns, product growth or decline, and unusual spikes or drops.", "Good forecasting data usually includes past sales by date, product, store or region, price, promotions, stock availability, holidays, and any known events that affected demand."]
+    },
+    {
+      "tag": "seasonality_and_trends",
+      "patterns": ["why does seasonality matter", "what is seasonality", "explain trends in demand", "seasonal demand forecasting", "how do trends affect forecasts", "difference between trend and seasonality", "what are seasonal patterns", "why demand changes every season"],
+      "responses": ["Seasonality is a repeating pattern in demand, such as higher sales during holidays, weekends, summer, or back-to-school periods. Forecasts should account for it so normal seasonal peaks are not treated as random spikes.", "A trend is the long-term direction of demand, while seasonality is a repeating cycle. For example, a product can have rising yearly demand and still peak every December."]
+    },
+    {
+      "tag": "promotions_holidays_external_factors",
+      "patterns": ["how do promotions affect demand", "do discounts change forecasts", "how holidays affect retail demand", "external factors in demand forecasting", "impact of festival on sales", "what factors affect demand", "how price affects demand", "promotion impact on forecast"],
+      "responses": ["Promotions, discounts, holidays, weather, local events, competitor actions, and price changes can all shift demand. A forecast is stronger when these factors are recorded instead of treating every sales jump as normal demand.", "Promotions often create temporary demand spikes before, during, or after a campaign. Forecasting should separate promotional lift from the product's baseline demand."]
+    },
+    {
+      "tag": "forecasting_models",
+      "patterns": ["what models are used for demand forecasting", "forecasting model types", "explain forecasting algorithms", "what is a time series model", "machine learning for demand forecasting", "which model is best for retail forecasting", "difference between statistical and machine learning forecasting"],
+      "responses": ["Common forecasting approaches include moving averages, exponential smoothing, ARIMA-style time series models, regression, tree-based machine learning models, and deep learning models. The best choice depends on data size, pattern complexity, and explainability needs.", "Simple models are useful for stable products and quick baselines. Machine learning models can handle more variables, such as promotions, price, holidays, and store-level differences, but they need cleaner data and stronger validation."]
+    },
+    {
+      "tag": "accuracy_metrics",
+      "patterns": ["what is mape", "explain mae", "explain rmse", "forecast accuracy metrics", "how to measure forecast error", "difference between mae rmse and mape", "what does forecast accuracy mean", "how do i evaluate a forecast"],
+      "responses": ["MAE is the average absolute error, RMSE penalizes larger errors more strongly, and MAPE expresses error as a percentage. Together, they help show how far forecasts are from actual sales.", "Forecast accuracy is usually evaluated by comparing predicted demand with actual demand. Lower MAE, RMSE, or MAPE generally means better accuracy, but the best metric depends on the business problem."]
+    },
+    {
+      "tag": "overforecasting_underforecasting",
+      "patterns": ["what happens if demand is overestimated", "what happens if demand is underestimated", "overforecasting vs underforecasting", "forecast too high", "forecast too low", "risk of over forecasting", "risk of under forecasting", "demand forecast error impact"],
+      "responses": ["Overforecasting can lead to excess inventory, higher storage costs, markdowns, spoilage, or tied-up cash. Underforecasting can cause stockouts, missed sales, customer dissatisfaction, and poor service levels.", "The cost of forecast error is not always equal. Some retailers prefer a slightly higher forecast for critical products to avoid stockouts, while others avoid overstock for expensive or perishable items."]
+    },
+    {
+      "tag": "inventory_stockout_impact",
+      "patterns": ["how does forecasting affect inventory", "forecasting and stockouts", "how to avoid stockouts", "inventory planning with forecasts", "demand forecast for replenishment", "how forecasts help supply chain", "why forecasts matter for inventory", "stock planning forecast"],
+      "responses": ["Forecasts help retailers set reorder quantities, safety stock, and replenishment timing. Better forecasts reduce both stockouts and excess inventory.", "When demand is forecast accurately, stores can carry enough product to meet customer needs without tying up too much cash in slow-moving stock."]
+    },
+    {
+      "tag": "interpreting_forecasts",
+      "patterns": ["how should i interpret a forecast", "how to read predicted demand", "what does predicted demand mean", "how do i understand forecast results", "how to use forecast output", "what should i do with a demand prediction", "interpret forecast chart", "explain forecast result"],
+      "responses": ["A forecast is an estimate, not a guarantee. Interpret it alongside recent sales, known promotions, stock availability, seasonality, and business context before making inventory decisions.", "When reading forecast results, compare predicted demand with recent actual demand, check whether the prediction follows known seasonal patterns, and look for unusual jumps that may need business review."]
+    },
+    {
+      "tag": "best_practices_limitations",
+      "patterns": ["best practices for demand forecasting", "common forecasting limitations", "why forecasts can be wrong", "how to improve forecast accuracy", "forecasting mistakes", "what makes a good demand forecast", "limitations of demand prediction", "tips for better forecasting"],
+      "responses": ["Good forecasting practice includes cleaning data, tracking promotions and stockouts, validating on recent periods, comparing against a simple baseline, monitoring errors over time, and reviewing unusual products manually.", "Forecasts can be wrong when data is missing, stockouts hide true demand, promotions are not recorded, customer behavior changes suddenly, or future events differ from the past."]
+    },
+    {
+      "tag": "fallback",
+      "patterns": [],
+      "responses": ["I'm not sure I understand. Try asking about retail demand forecasting, seasonality, forecast accuracy, inventory impact, or interpreting predicted demand.", "Sorry, I don't have an answer for that yet. Could you rephrase it as a retail demand forecasting question?", "I may not know that topic. I can help with demand forecasts, sales history, promotions, forecasting models, error metrics, and stock planning."]
+    }
+  ]
+}
